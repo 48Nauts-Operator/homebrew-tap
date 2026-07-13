@@ -5,8 +5,7 @@ cask "xnaut" do
   sha256 arm:   "846fa04ea8da4984a8b8c4c75c31b5bc2a0c8a3c8306d9e9e702bec9f34f76c5",
          intel: "d73af708517ac00981dc82aba677a20af305f810caae15bc2a7e8c31b81989f0"
 
-  url "https://github.com/48Nauts-Operator/xNaut/releases/download/v#{version}/xNAUT-#{version}-macos-#{arch}.dmg",
-      verified: "github.com/48Nauts-Operator/xNaut/"
+  url "https://github.com/48Nauts-Operator/xNaut/releases/download/v#{version}/xNAUT-#{version}-macos-#{arch}.dmg"
   name "xNAUT"
   desc "AI-enhanced native terminal with worktree review and agent orchestration"
   homepage "https://github.com/48Nauts-Operator/xNaut"
@@ -17,7 +16,7 @@ cask "xnaut" do
   end
 
   auto_updates true
-  depends_on macos: ">= :big_sur"
+  depends_on macos: :big_sur
 
   app "xNAUT.app"
 

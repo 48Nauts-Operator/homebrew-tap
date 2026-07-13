@@ -6,15 +6,14 @@ AI-enhanced native terminal with worktree review and agent orchestration.
 ## Install
 
 ```sh
-brew install --cask 48Nauts-Operator/homebrew-tap/xnaut
-```
-
-Or tap first, then install by short name:
-
-```sh
-brew tap 48Nauts-Operator/homebrew-tap
+brew tap 48Nauts-Operator/tap
+brew trust 48nauts-operator/tap      # recent Homebrew requires trusting 3rd-party casks
 brew install --cask xnaut
 ```
+
+The `brew trust` step is a one-time-per-machine confirmation that recent
+Homebrew requires before it will run a cask from a tap outside its official
+repositories. Without it you get `Refusing to load cask … from untrusted tap`.
 
 ## Upgrade
 
