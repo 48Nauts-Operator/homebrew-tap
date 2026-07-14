@@ -1,6 +1,6 @@
 cask "xnaut" do
-  version "1.9.3"
-  sha256 "04cdba40e0baa34b8ead0372974908fd4347656368b7e58caddb41db09b39a42"
+  version "1.9.4"
+  sha256 "ba2670a622b39cbfa60c1efe16dc371df21f6e1b09a108c828e963d78cf7ce3f"
 
   url "https://github.com/48Nauts-Operator/xNaut/releases/download/v#{version}/xNAUT-#{version}-macos-aarch64.dmg"
   name "xNAUT"
