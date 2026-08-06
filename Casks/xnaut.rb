@@ -1,8 +1,11 @@
 cask "xnaut" do
-  version "1.9.4"
-  sha256 "ba2670a622b39cbfa60c1efe16dc371df21f6e1b09a108c828e963d78cf7ce3f"
+  arch arm: "aarch64", intel: "x64"
 
-  url "https://github.com/48Nauts-Operator/xNaut/releases/download/v#{version}/xNAUT-#{version}-macos-aarch64.dmg"
+  version "1.11.1"
+  sha256 arm:   "8549212d8c58d3723eb14b0bda88e65f36b854f89153b6d7c7c658055d7aff47",
+         intel: "3a1b83eff658ee2cac5ba08d349536771186176646e5f4789110138779541c6b"
+
+  url "https://github.com/48Nauts-Operator/xNaut/releases/download/v#{version}/xNAUT-#{version}-macos-#{arch}.dmg"
   name "xNAUT"
   desc "AI-enhanced native terminal with worktree review and agent orchestration"
   homepage "https://github.com/48Nauts-Operator/xNaut"
@@ -13,9 +16,6 @@ cask "xnaut" do
   end
 
   auto_updates true
-  # Apple Silicon only for now — the Intel dmg is restored once release CI signs
-  # + notarizes both arches (see XNAUT-29).
-  depends_on arch: :arm64
   depends_on macos: :big_sur
 
   app "xNAUT.app"
