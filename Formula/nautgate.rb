@@ -31,7 +31,7 @@ class Nautgate < Formula
   desc "Memory-aware LLM gateway — routes, records and prices every model call"
   homepage "https://nautgate.dev"
   url "https://github.com/48Nauts-Operator/NautGate/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "01aca24f6a01022e5d7f96df495ed30bdfe70a263100cbc86dbb846bc2c7f46c"
+  sha256 "ebbb8ea744353bccf2c333f7287a353745616ada1ec0ff4b1bad6cc9a8f796be"
   license "AGPL-3.0-or-later"
   head "https://github.com/48Nauts-Operator/NautGate.git", branch: "main"
 
