@@ -32,6 +32,7 @@ class Nautgate < Formula
   homepage "https://nautgate.dev"
   url "https://github.com/48Nauts-Operator/NautGate/archive/refs/tags/v0.2.0.tar.gz"
   sha256 "ebbb8ea744353bccf2c333f7287a353745616ada1ec0ff4b1bad6cc9a8f796be"
+  revision 1
   license "AGPL-3.0-or-later"
   head "https://github.com/48Nauts-Operator/NautGate.git", branch: "main"
 
@@ -217,6 +218,10 @@ class Nautgate < Formula
       # source tree in every deployment shape it supports.
       export PYTHONPATH="#{libexec}"
       export NAUTGATE_CONFIG_DIR="${NAUTGATE_CONFIG_DIR:-#{libexec}/config}"
+      # A brew service does not inherit the shell that launched it. Give the
+      # standard local database a durable default while preserving an explicit
+      # override for foreground/native runs.
+      export NAUTGATE_DB_URL="${NAUTGATE_DB_URL:-postgres://$(id -un)@localhost:5432/nautgate}"
       exec "#{libexec}/venv/bin/python" -m app.cli "$@"
     SH
     chmod 0755, bin/"nautgate"
@@ -238,12 +243,15 @@ class Nautgate < Formula
       NautGate needs a Postgres database. Once:
 
         brew services start postgresql@16
-        createdb nautgate
+        "$(brew --prefix postgresql@16)/bin/createdb" nautgate
 
-      Then point it at the database and start the gateway:
+      Then start the gateway:
 
-        export NAUTGATE_DB_URL="postgres://$(whoami)@localhost:5432/nautgate"
         brew services start nautgate
+
+      The wrapper defaults NAUTGATE_DB_URL to the database above, including when
+      launchd starts it. Set NAUTGATE_DB_URL explicitly when running
+      `nautgate serve` in the foreground to use a different database.
 
       The dashboard is on http://127.0.0.1:8090/dashboard and the first-run API
       key is printed to #{var}/log/nautgate.log the first time it starts with an
