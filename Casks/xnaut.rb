@@ -1,9 +1,9 @@
 cask "xnaut" do
   arch arm: "aarch64", intel: "x64"
 
-  version "1.23.0"
-  sha256 arm:   "9d9314fb84a6f9e9c15413dbe2c0ef8296d02c6ab251cb7d9e6350ea6156be69",
-         intel: "c99e115967adeffeb6d1aee9fcf14788bed65504fd4a5f24aa6ee3bf7e65c337"
+  version "1.23.1"
+  sha256 arm:   "980cdfc2ca54feb1fa26a8c824387b253dfc027d9729efab2b58d95251063671",
+         intel: "31baaf950d986c0bde0eb12a92f7a79d23710e7953a8a343aa3be96fc57e60c4"
 
   url "https://github.com/48Nauts-Operator/xNaut/releases/download/v#{version}/xNAUT-#{version}-macos-#{arch}.dmg"
   name "xNAUT"
